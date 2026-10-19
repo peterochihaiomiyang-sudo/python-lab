@@ -1,14 +1,26 @@
--- Week 1 MySQL Database Assignment
--- Topic: School Management
+-- Week 3 Database Assignment
+-- Topic: SQL Transactions and Aggregate Functions
 
-CREATE DATABASE IF NOT EXISTS school_management;
+USE sales;
 
-USE school_management;
-
-CREATE TABLE IF NOT EXISTS students (
-    student_id INT AUTO_INCREMENT PRIMARY KEY,
-    first_name VARCHAR(50) NOT NULL,
-    last_name VARCHAR(50) NOT NULL,
-    email VARCHAR(100) UNIQUE,
-    date_of_birth DATE
+-- Question 1: Create the student table
+CREATE TABLE IF NOT EXISTS student (
+    id INT PRIMARY KEY,
+    fullName VARCHAR(100),
+    age INT
 );
+
+-- Question 2: Insert at least 3 records
+INSERT INTO student (id, fullName, age)
+VALUES
+    (1, 'Peter', 18),
+    (2, 'John', 19),
+    (3, 'Mary', 21);
+
+-- Question 3: Update the age of student ID 2 to 20
+UPDATE student
+SET age = 20
+WHERE id = 2;
+
+-- Verify the records
+SELECT * FROM student;
